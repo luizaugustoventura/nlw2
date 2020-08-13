@@ -22,7 +22,6 @@ const TimePicker: React.FC<TimePickerProps> = ({ visible, setVisible, time, setT
   }
 
   return (
-    <View>
       <DateTimePicker
         testID="dateTimePicker"
         value={time}
@@ -31,8 +30,6 @@ const TimePicker: React.FC<TimePickerProps> = ({ visible, setVisible, time, setT
         display="default"
         onChange={(event, date) => onChange(date as Date)}
       />
-    </View>
-    
   );
 };
 
