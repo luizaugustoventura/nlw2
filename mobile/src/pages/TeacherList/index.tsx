@@ -8,6 +8,7 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 import PageHeader from '../../components/PageHeader';
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
+import PickerSelect from '../../components/PickerSelect';
 
 import api from '../../services/api';
 
@@ -90,72 +91,47 @@ function TeacherList() {
                     <View style={styles.searchForm}>
                         <Text style={styles.label}>Matéria</Text>
                         <View style={styles.input}>
-                            <RNPickerSelect
-                                style={{ 
-                                   placeholder: {
-                                       color: '#C1BCCC'
-                                   }
-                                 }}
-                                placeholder={{ label: 'Qual a matéria?', value: null, color: '#C1BCCC' }}
+                            <PickerSelect 
+                                placeholder="Qual a matéria?"
                                 value={subject}
-                                onValueChange={setSubject}
+                                onChange={setSubject}
                                 items={[
-                                    { label: 'Artes', value: 'Artes', color: '#000' },
-                                    { label: 'Biologia', value: 'Biologia', color: '#000' },
-                                    { label: 'Ciências', value: 'Ciências', color: '#000' },
-                                    { label: 'Educação física', value: 'Educação física', color: '#000' },
-                                    { label: 'Geografia', value: 'Geografia', color: '#000' },
-                                    { label: 'História', value: 'História', color: '#000' },
-                                    { label: 'Matemática', value: 'Matemática', color: '#000' },
-                                    { label: 'Português', value: 'Português', color: '#000' },
-                                    { label: 'Química', value: 'Química', color: '#000' }
+                                    { label: 'Artes', value: 'Artes' },
+                                    { label: 'Biologia', value: 'Biologia' },
+                                    { label: 'Ciências', value: 'Ciências' },
+                                    { label: 'Educação física', value: 'Educação física' },
+                                    { label: 'Geografia', value: 'Geografia' },
+                                    { label: 'História', value: 'História' },
+                                    { label: 'Matemática', value: 'Matemática' },
+                                    { label: 'Português', value: 'Português' },
+                                    { label: 'Química', value: 'Química' }
                                 ]}
                             />
                         </View>
-                        {/* <TextInput
-                            style={styles.input}
-                            value={subject}
-                            onChangeText={setSubject}
-                            placeholder="Qual a matéria?"
-                            placeholderTextColor="#C1BCCC"
-                        /> */}
 
                         <View style={styles.inputGroup}>
                             <View style={styles.inputBlock}>
                                 <Text style={styles.label}>Dia da semana</Text>
                                 <View style={styles.input}>
-                                    <RNPickerSelect
-                                        style={{ 
-                                            placeholder: {
-                                                color: '#C1BCCC'
-                                            }
-                                        }}
-                                        placeholder={{ label: 'Qual o dia?', value: null, color: '#C1BCCC' }}
+                                    <PickerSelect 
+                                        placeholder="Qual o dia?"
                                         value={week_day}
-                                        onValueChange={setWeekDay}
+                                        onChange={setWeekDay}
                                         items={[
-                                            { label: 'Domingo', value: '0', color: '#000' },
-                                            { label: 'Segunda-feira', value: '1', color: '#000' },
-                                            { label: 'Terça-feira', value: '2', color: '#000' },
-                                            { label: 'Quarta-feira', value: '3', color: '#000' },
-                                            { label: 'Quinta-feira', value: '4', color: '#000' },
-                                            { label: 'Sexta-feira', value: '5', color: '#000' },
-                                            { label: 'Sábado', value: '6', color: '#000' }
+                                            { label: 'Domingo', value: '0' },
+                                            { label: 'Segunda-feira', value: '1' },
+                                            { label: 'Terça-feira', value: '2' },
+                                            { label: 'Quarta-feira', value: '3' },
+                                            { label: 'Quinta-feira', value: '4' },
+                                            { label: 'Sexta-feira', value: '5' },
+                                            { label: 'Sábado', value: '6' }
                                         ]}
                                     />
                                 </View>
-                                {/* <TextInput
-                                    style={styles.input}
-                                    value={week_day}
-                                    onChangeText={setWeekDay}
-                                    placeholder="Qual o dia?"
-                                    placeholderTextColor="#C1BCCC"
-                                /> */}
                             </View>
 
                             <View style={styles.inputBlock}>
                                 <Text style={styles.label}>Horário</Text>
-                               
                                 <TouchableWithoutFeedback 
                                     style={styles.input} 
                                     onPress={() => setShowTimePicker(true)}
@@ -172,14 +148,7 @@ function TeacherList() {
                                     onConfirm={onTimePickerConfirm}
                                     onCancel={() => setShowTimePicker(false)}    
                                 />
-                        
-                                {/* <TextInput
-                                    style={styles.input}
-                                    value={time}
-                                    onChangeText={setTime}
-                                    placeholder="Qual horário?"
-                                    placeholderTextColor="#C1BCCC"
-                                /> */}
+                    
                             </View>
                         </View>
 
