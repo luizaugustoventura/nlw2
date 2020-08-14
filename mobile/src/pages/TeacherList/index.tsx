@@ -15,6 +15,7 @@ import api from '../../services/api';
 import styles from './styles';
 import { useFocusEffect } from '@react-navigation/native';
 import parseDateAsTimeString from '../../utils/parseDateAsTimeString';
+import NoContent from '../../components/NoContent';
 
 function TeacherList() {
     const [teachers, setTeachers] = useState([]);
@@ -159,21 +160,28 @@ function TeacherList() {
                 )}
             </PageHeader>
 
-            <ScrollView
-                style={styles.teacherList}
-                contentContainerStyle={{
-                    paddingHorizontal: 16,
-                    paddingBottom: 16
-                }}
-            >
-                { teachers.map((teacher: Teacher) => (
-                    <TeacherItem
-                        key={teacher.id}
-                        teacher={teacher}
-                        favorited={favorites.includes(teacher.id)}
-                    />
-                ))}
-            </ScrollView>
+            { teachers.length ? (
+                <ScrollView
+                    style={styles.teacherList}
+                    contentContainerStyle={{
+                        paddingHorizontal: 16,
+                        paddingBottom: 16
+                    }}
+                >
+                    { teachers.map((teacher: Teacher) => (
+                        <TeacherItem
+                            key={teacher.id}
+                            teacher={teacher}
+                            favorited={favorites.includes(teacher.id)}
+                        />
+                    ))}
+                </ScrollView>
+            ) : (
+                <NoContent 
+                    text={"Ops! Não temos nada aqui... :(\nTente realizar uma nova filtragem"}
+                    textColor="#8257E5"
+                />
+            ) }
         </View>
     );
 }
