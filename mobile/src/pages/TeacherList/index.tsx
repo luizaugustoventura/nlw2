@@ -4,11 +4,10 @@ import { BorderlessButton, RectButton, TouchableWithoutFeedback } from 'react-na
 import { Feather } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-community/async-storage';
 import RNPickerSelect from 'react-native-picker-select';
-import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 import PageHeader from '../../components/PageHeader';
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
-import TimePicker from '../../components/TimePicker';
 
 import api from '../../services/api';
 
@@ -62,7 +61,7 @@ function TeacherList() {
         setTeachers(response.data);
     }
 
-    const handleToggleTimePicker = (pickerTime: Date) => {
+    const onTimePickerConfirm = (pickerTime: Date) => {
         const date = pickerTime || new Date();
         const formattedStringTime = parseDateAsTimeString(date);
 
@@ -166,11 +165,12 @@ function TeacherList() {
                                     </Text>
                                 </TouchableWithoutFeedback>
 
-                                <TimePicker 
-                                    visible={showTimePicker}
-                                    setVisible={setShowTimePicker}
-                                    time={time}
-                                    setTime={setTime}
+                                <DateTimePickerModal
+                                    isVisible={showTimePicker}
+                                    is24Hour={true}
+                                    mode="time"
+                                    onConfirm={onTimePickerConfirm}
+                                    onCancel={() => setShowTimePicker(false)}    
                                 />
                         
                                 {/* <TextInput
