@@ -96,19 +96,19 @@ function TeacherList() {
                                        color: '#C1BCCC'
                                    }
                                  }}
-                                placeholder={{ label: 'Qual a matéria?', value: null }}
+                                placeholder={{ label: 'Qual a matéria?', value: null, color: '#C1BCCC' }}
                                 value={subject}
                                 onValueChange={setSubject}
                                 items={[
-                                    { label: 'Artes', value: 'Artes' },
-                                    { label: 'Biologia', value: 'Biologia' },
-                                    { label: 'Ciências', value: 'Ciências' },
-                                    { label: 'Educação física', value: 'Educação física' },
-                                    { label: 'Geografia', value: 'Geografia' },
-                                    { label: 'História', value: 'História' },
-                                    { label: 'Matemática', value: 'Matemática' },
-                                    { label: 'Português', value: 'Português' },
-                                    { label: 'Química', value: 'Química' }
+                                    { label: 'Artes', value: 'Artes', color: '#000' },
+                                    { label: 'Biologia', value: 'Biologia', color: '#000' },
+                                    { label: 'Ciências', value: 'Ciências', color: '#000' },
+                                    { label: 'Educação física', value: 'Educação física', color: '#000' },
+                                    { label: 'Geografia', value: 'Geografia', color: '#000' },
+                                    { label: 'História', value: 'História', color: '#000' },
+                                    { label: 'Matemática', value: 'Matemática', color: '#000' },
+                                    { label: 'Português', value: 'Português', color: '#000' },
+                                    { label: 'Química', value: 'Química', color: '#000' }
                                 ]}
                             />
                         </View>
@@ -130,17 +130,17 @@ function TeacherList() {
                                                 color: '#C1BCCC'
                                             }
                                         }}
-                                        placeholder={{ label: 'Qual o dia?', value: null }}
+                                        placeholder={{ label: 'Qual o dia?', value: null, color: '#C1BCCC' }}
                                         value={week_day}
                                         onValueChange={setWeekDay}
                                         items={[
-                                            { label: 'Domingo', value: '0' },
-                                            { label: 'Segunda-feira', value: '1' },
-                                            { label: 'Terça-feira', value: '2' },
-                                            { label: 'Quarta-feira', value: '3' },
-                                            { label: 'Quinta-feira', value: '4' },
-                                            { label: 'Sexta-feira', value: '5' },
-                                            { label: 'Sábado', value: '6' }
+                                            { label: 'Domingo', value: '0', color: '#000' },
+                                            { label: 'Segunda-feira', value: '1', color: '#000' },
+                                            { label: 'Terça-feira', value: '2', color: '#000' },
+                                            { label: 'Quarta-feira', value: '3', color: '#000' },
+                                            { label: 'Quinta-feira', value: '4', color: '#000' },
+                                            { label: 'Sexta-feira', value: '5', color: '#000' },
+                                            { label: 'Sábado', value: '6', color: '#000' }
                                         ]}
                                     />
                                 </View>
@@ -160,7 +160,7 @@ function TeacherList() {
                                     style={styles.input} 
                                     onPress={() => setShowTimePicker(true)}
                                 >
-                                    <Text>
+                                    <Text style={styles.inputTimeText}>
                                         {timeAsString}
                                     </Text>
                                 </TouchableWithoutFeedback>

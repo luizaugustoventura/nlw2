@@ -33,9 +33,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         borderRadius: 8,
         justifyContent: 'center',
-        paddingHorizontal: 16,
+        paddingHorizontal: 12,
         marginTop: 4,
         marginBottom: 16
+    },
+
+    inputTimeText: {
+        fontSize: 16,
+        marginHorizontal: 4
     },
 
     submitButton: {
